@@ -89,7 +89,7 @@ move to next position
 ## How to Run
 1. Open terminal
 2. Navigate to project folder
-3. Run: UGVrealworld.py
+3. Run: ugv_pathplanning.py
 
 ## Output
 - Path found
