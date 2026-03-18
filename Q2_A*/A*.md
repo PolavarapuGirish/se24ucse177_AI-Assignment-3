@@ -55,7 +55,7 @@ Steps:
 
 ## Files
 
-- ugv_path_planning.py – main program  
+- A*.py – main program  
 
 ---
 
