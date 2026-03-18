@@ -69,12 +69,16 @@ f(n) = g(n) + h(n)
 5. Continue until goal is reached
 
 ## Pseudocode
-while current_position != goal:
-if obstacle_detected:
-    update_map()
-    recompute_path_using_A_star()
 
-move_to_next_position()
+```
+while current_position != goal:
+
+    if obstacle_detected:
+        update_map()
+        recompute_path_using_A_star()
+
+    move_to_next_position()
+```
 
 ## Features
 - Grid-based environment (customizable size)
