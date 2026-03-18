@@ -8,7 +8,7 @@ The cities are represented as nodes and the roads between them are represented a
 
 ⸻
 
-##Objective
+## Objective
 	•	To understand how shortest path algorithms work
 	•	To apply Dijkstra’s Algorithm on real-world inspired data
 	•	To simulate road distances between Indian cities
@@ -23,7 +23,7 @@ Steps:
 4. Repeat until all nodes are visited  
 ⸻
 
-Features
+## Features
 	•	Simple and beginner-friendly implementation
 	•	Uses Python dictionary to represent graph
 	•	Uses priority queue (heapq) for efficiency
@@ -46,7 +46,7 @@ Example
 Input:
 Enter starting city: Hyderabad
 
-Output:
+## Output:
 Hyderabad: 0 km
 Bangalore: 570 km
 Chennai: 630 km
@@ -54,13 +54,13 @@ Mumbai: 710 km
 
 ⸻
 
-Requirements
+## Requirements
 	•	Python 3
 	•	No external libraries required
 
 ⸻
 
-Applications
+## Applications
 	•	GPS navigation systems
 	•	Network routing protocols
 	•	Transportation and logistics planning
@@ -68,7 +68,7 @@ Applications
 
 ⸻
 
-Future Improvements
+## Future Improvements
 	•	Add more Indian cities with real data
 	•	Use file input instead of hardcoding graph
 	•	Visualize graph using libraries like matplotlib or networkx
