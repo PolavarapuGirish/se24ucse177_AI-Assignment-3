@@ -1,5 +1,3 @@
-:::writing{variant=“standard” id=“66219”}
-
 UGV Path Planning using A* Algorithm (Python)
 
 1. Introduction
