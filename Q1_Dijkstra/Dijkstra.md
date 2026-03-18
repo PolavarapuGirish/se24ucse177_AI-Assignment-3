@@ -14,17 +14,13 @@ Objective
 	•	To simulate road distances between Indian cities
 
 ⸻
-
-Algorithm
-
-Dijkstra’s Algorithm is a greedy algorithm used for finding the shortest path in a graph with non-negative weights.
+## Algorithm
 
 Steps:
-	1.	Set distance of start node to 0 and others to infinity
-	2.	Pick the node with the smallest distance
-	3.	Update distances of neighboring nodes
-	4.	Repeat until all nodes are visited
-
+1. Set distance of start node to 0 and others to infinity  
+2. Pick the node with the smallest distance  
+3. Update distances of neighboring nodes  
+4. Repeat until all nodes are visited  
 ⸻
 
 Features
@@ -36,7 +32,7 @@ Features
 	
 ⸻
 
-How to Run
+## How to Run
 	1.	Open terminal
 	2.	Navigate to project folder
 	3.	Run:
