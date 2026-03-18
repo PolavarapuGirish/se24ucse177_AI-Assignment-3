@@ -1,14 +1,23 @@
-UGV Path Planning in Static and Dynamic Environments
+:::writing{variant=“standard” id=“66219”}
+
+UGV Path Planning using A* Algorithm (Python)
 
 1. Introduction
 
 An Unmanned Ground Vehicle (UGV) is an autonomous robot used for navigation in complex environments such as battlefields. The objective is to find the shortest and safest path from a start node to a goal node while avoiding obstacles.
 
-The environment is modeled as a grid (e.g., 70 × 70 km area), where each cell represents a location.
+⸻
+
+2. Environment
+
+The environment is modeled as a grid (e.g., 70 × 70 km area), where:
+	•	Each cell represents a location
+	•	Obstacles are pre-defined or randomly generated
+	•	The UGV must safely reach the destination
 
 ⸻
 
-2. Problem Statement
+3. Problem Statement
 
 Design an algorithm that enables a UGV to:
 	•	Navigate from a start node to a goal node
@@ -18,7 +27,7 @@ Design an algorithm that enables a UGV to:
 
 ⸻
 
-3. Static Environment (Known Obstacles)
+4. Static Environment (Known Obstacles)
 
 Description
 	•	Obstacles are known beforehand
@@ -32,7 +41,7 @@ f(n) = g(n) + h(n)
 	•	g(n): Cost from start node
 	•	h(n): Estimated cost to goal (Manhattan distance)
 
-Steps:
+Steps
 	1.	Initialize start node with distance 0
 	2.	Assign infinity to all other nodes
 	3.	Select node with minimum cost
@@ -45,51 +54,30 @@ Advantages
 
 ⸻
 
-4. Dynamic Environment (Unknown / Moving Obstacles)
+5. Dynamic Environment (Unknown / Moving Obstacles)
 
 Description
 	•	Obstacles may appear, disappear, or move
 	•	Environment is not fully known in advance
 
-Challenge
-	•	Precomputed paths may become invalid
-	•	Requires real-time decision making
-
-⸻
-
-5. Solution for Dynamic Environment
-
-Approach: Replanning + Real-Time Sensing
-
-The UGV continuously:
-	1.	Senses environment using sensors
-	2.	Updates internal map
-	3.	Recomputes path if needed
-
-⸻
+Solution Approach
+	•	Use real-time sensing to detect obstacles
+	•	Update the grid dynamically
+	•	Recompute path when changes occur
 
 Algorithms Used
-
-1. A* with Replanning
-	•	Re-run A* when obstacle is detected
-	•	Simple but less efficient
-
-2. D* Algorithm
-	•	Updates only affected parts of path
-	•	Suitable for dynamic changes
-
-3. D* Lite (Recommended)
-	•	Faster and more efficient version of D*
-	•	Widely used in robotics
+	•	A* with Replanning
+	•	D* Algorithm
+	•	D* Lite (recommended)
 
 ⸻
 
-6. Working of UGV in Dynamic Environment
+6. Working of UGV
 	1.	Compute initial path using A*
 	2.	Start moving towards goal
 	3.	Continuously scan environment
 	4.	If obstacle detected:
-	•	Update grid
+	•	Update map
 	•	Recalculate path
 	5.	Continue until goal is reached
 
@@ -98,24 +86,53 @@ Algorithms Used
 7. Pseudocode
 
 while current_position != goal:
-if obstacle detected:
-update map
-recompute path using A*
-
-move to next position
+    if obstacle detected:
+        update map
+        recompute path using A*
+    
+    move to next position
 
 
 ⸻
 
-8. Measures of Effectiveness
+8. Features
+	•	Grid-based environment (customizable size)
+	•	Random obstacle generation
+	•	Three obstacle density levels:
+	•	Low (10%)
+	•	Medium (20–30%)
+	•	High (40%+)
+	•	Shortest path computation using A*
+	•	Easy to modify and extend
 
-For Static Environment:
+⸻
+
+9. How to Run
+	1.	Open terminal
+	2.	Navigate to project folder
+	3.	Run:
+
+python3 UGVrealworld.py
+
+
+⸻
+
+10. Output
+	•	Path found
+	•	Path length
+	•	Sequence of coordinates
+
+⸻
+
+11. Measures of Effectiveness
+
+Static Environment
 	•	Path Length
 	•	Computation Time
 	•	Nodes Explored
 	•	Optimality
 
-For Dynamic Environment:
+Dynamic Environment
 	•	Replanning Time
 	•	Adaptability
 	•	Collision Avoidance Rate
@@ -124,24 +141,21 @@ For Dynamic Environment:
 
 ⸻
 
-9. Applications
+12. Applications
 	•	Military UGV navigation
-	•	Autonomous vehicles
 	•	Robotics path planning
-	•	Search and rescue operations
-	•	Game AI simulations
+	•	Autonomous vehicles
+	•	Game AI and simulations
 
 ⸻
 
-10. Conclusion
-
-In static environments, A* efficiently finds the shortest path. However, in dynamic environments, real-time adaptation is required. Algorithms like D* and D* Lite allow the UGV to update paths dynamically, ensuring safe and optimal navigation even when obstacles change over time.
+13. Future Improvements
+	•	Visualization of grid and path
+	•	Real-world map integration
+	•	Dynamic obstacle handling
+	•	GUI-based simulation
 
 ⸻
 
-11. Future Improvements
-	•	Integration with real-world maps
-	•	Machine learning for obstacle prediction
-	•	3D environment navigation
-	•	Real-time visualization
-	•	Multi-agent coordination
+14. Requirements
+	•	Python 3
