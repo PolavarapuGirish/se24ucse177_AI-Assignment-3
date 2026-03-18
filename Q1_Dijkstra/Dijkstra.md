@@ -8,7 +8,7 @@ The cities are represented as nodes and the roads between them are represented a
 
 ⸻
 
-Objective
+##Objective
 	•	To understand how shortest path algorithms work
 	•	To apply Dijkstra’s Algorithm on real-world inspired data
 	•	To simulate road distances between Indian cities
