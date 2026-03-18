@@ -21,7 +21,6 @@ Steps:
 2. Pick the node with the smallest distance  
 3. Update distances of neighboring nodes  
 4. Repeat until all nodes are visited  
-⸻
 
 ## Features
 	•	Simple and beginner-friendly implementation
@@ -37,7 +36,7 @@ Steps:
 	2.	Navigate to project folder
 	3.	Run:
 
-python3 dijkstra_india.py
+python3 Dijkstra_PathFinding.py
 
 ⸻
 
