@@ -1,15 +1,18 @@
-UGV Path Planning using A* Algorithm (Python)
+# UGV Path Planning using A* Algorithm (Python)
 
-  Description
+## Description
+This project simulates an Unmanned Ground Vehicle (UGV) navigating through a battlefield represented as a grid. The UGV finds the shortest path from a start node to a goal node while avoiding obstacles.
 
-This project simulates an Unmanned Ground Vehicle (UGV) navigating through a battlefield represented as a 2D grid. The UGV finds the shortest path from a user-defined start node to a goal node while avoiding obstacles.
+---
 
+## Environment
 The environment is modeled as a grid (e.g., 70 × 70 km area), where:
-	•	Each cell represents a location
-	•	Obstacles are pre-defined or randomly generated
-	•	The UGV must safely reach the destination
 
-⸻
+- Each cell represents a location  
+- Obstacles are pre-defined or randomly generated  
+- The UGV must safely reach the destination  
+
+---
 
 ## Objective
 
@@ -17,88 +20,102 @@ The environment is modeled as a grid (e.g., 70 × 70 km area), where:
 - Avoid obstacles while minimizing travel distance  
 - Evaluate performance using effectiveness metrics  
 
-⸻
+---
 
-  Algorithm Used
+## Algorithm
 
-A (A-Star) Algorithm*
-
-A* is a heuristic-based search algorithm that finds the shortest path efficiently.
-
-It uses the function:
+A* (A-Star) Algorithm is used for path planning.
 
 f(n) = g(n) + h(n)
 
-Where:
-	•	g(n) = cost from start node
-	•	h(n) = estimated cost to goal (Manhattan distance)
+- g(n): Cost from start node  
+- h(n): Estimated cost to goal (Manhattan distance)  
 
-⸻
+Steps:
 
-  Features
-	•	Grid-based environment (customizable size)
-	•	Random obstacle generation
-	•	Three obstacle density levels:
-	•	Low (10%)
-	•	Medium (20–30%)
-	•	High (40%+)
-	•	Shortest path computation using A*
-	•	Easy to modify and extend
+1. Set distance of start node to 0 and others to infinity  
+2. Pick the node with the smallest distance  
+3. Update distances of neighboring nodes  
+4. Repeat until all nodes are visited  
 
-⸻
+---
 
-  Files
-	•	ugv_path_planning.py – main implementation
+## Features
 
-⸻
+- Grid-based environment (customizable size)  
+- Random obstacle generation  
+- Three obstacle density levels:
+  - Low (10%)  
+  - Medium (20–30%)  
+  - High (40%+)  
+- Shortest path computation using A*  
+- Easy to modify and extend  
 
-  How to Run
-	1.	Open terminal
-	2.	Navigate to project folder
-	3.	Run:
+---
 
-python3 ugv_path_planning.py
+## Files
 
-⸻
+- ugv_path_planning.py – main program  
 
-  Example
+---
 
-Start Node: (0, 0)
-Goal Node: (19, 19)
+## How to Run
 
-Output:
-	•	Path found
-	•	Path length
-	•	Sequence of coordinates
+1. Open terminal  
+2. Navigate to project folder  
+3. Run:
 
-⸻
+python3 ugv_path_planning.py  
 
-  Measures of Effectiveness
+---
+
+## Output
+
+- Path found  
+- Path length  
+- Sequence of coordinates  
+
+---
+
+## Measures of Effectiveness
 
 The performance of the algorithm is evaluated using:
-	1.	Path Length
-	•	Total steps taken to reach goal
-	2.	Computation Time
-	•	Time required to compute path
-	3.	Nodes Explored
-	•	Number of nodes visited during search
-	4.	Success Rate
-	•	Ability to find path under different obstacle densities
-	5.	Optimality
-	•	Whether the shortest path is found (A* ensures optimality)
 
-⸻
+1. Path Length  
+   - Total steps taken to reach goal  
 
-  Applications
-	•	Military UGV navigation
-	•	Robotics path planning
-	•	Autonomous vehicles
-	•	Game AI and simulations
+2. Computation Time  
+   - Time required to compute path  
 
-⸻
+3. Nodes Explored  
+   - Number of nodes visited during search  
 
-  Future Improvements
-	•	Visualization of grid and path
-	•	Real-world map integration
-	•	Dynamic obstacle handling
-	•	GUI-based simulation
+4. Success Rate  
+   - Ability to find path under different obstacle densities  
+
+5. Optimality  
+   - Whether the shortest path is found (A* ensures optimality)  
+
+---
+
+## Applications
+
+- Military UGV navigation  
+- Robotics path planning  
+- Autonomous vehicles  
+- Game AI and simulations  
+
+---
+
+## Future Improvements
+
+- Visualization of grid and path  
+- Real-world map integration  
+- Dynamic obstacle handling  
+- GUI-based simulation  
+
+---
+
+## Requirements
+
+- Python 3  
