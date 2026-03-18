@@ -4,7 +4,7 @@
 This project simulates an Unmanned Ground Vehicle (UGV) navigating through a battlefield represented as a grid. The UGV finds the shortest path from a start node to a goal node while avoiding obstacles.
 
 ---
-
+ 
 ## Environment
 The environment is modeled as a grid (e.g., 70 × 70 km area), where:
 
