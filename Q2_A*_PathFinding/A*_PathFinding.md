@@ -55,7 +55,7 @@ Steps:
 
 ## Files
 
-- A*.py – main program  
+- A*_PathFinding.py – main program  
 
 ---
 
@@ -65,7 +65,7 @@ Steps:
 2. Navigate to project folder  
 3. Run:
 
-python3 ugv_path_planning.py  
+python3 A*_PathFinding.py  
 
 ---
 
