@@ -11,10 +11,11 @@ The environment is modeled as a grid (e.g., 70 × 70 km area), where:
 
 ⸻
 
- ##Objective
-	-	Design an algorithm for autonomous navigation
-	-	Avoid obstacles while minimizing travel distance
-	-	Evaluate performance using effectiveness metrics
+## Objective
+
+- Design an algorithm for autonomous navigation  
+- Avoid obstacles while minimizing travel distance  
+- Evaluate performance using effectiveness metrics  
 
 ⸻
 
