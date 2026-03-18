@@ -1,21 +1,17 @@
 UGV Path Planning using A* Algorithm (Python)
 
-1. Introduction
+Introduction
 
 An Unmanned Ground Vehicle (UGV) is an autonomous robot used for navigation in complex environments such as battlefields. The objective is to find the shortest and safest path from a start node to a goal node while avoiding obstacles.
 
-⸻
-
-2. Environment
+Environment
 
 The environment is modeled as a grid (e.g., 70 × 70 km area), where:
 	•	Each cell represents a location
 	•	Obstacles are pre-defined or randomly generated
 	•	The UGV must safely reach the destination
 
-⸻
-
-3. Problem Statement
+Problem Statement
 
 Design an algorithm that enables a UGV to:
 	•	Navigate from a start node to a goal node
@@ -23,9 +19,7 @@ Design an algorithm that enables a UGV to:
 	•	Find the shortest possible path
 	•	Adapt to both static and dynamic obstacles
 
-⸻
-
-4. Static Environment (Known Obstacles)
+Static Environment (Known Obstacles)
 
 Description
 	•	Obstacles are known beforehand
@@ -50,9 +44,7 @@ Advantages
 	•	Guarantees shortest path
 	•	Efficient for known environments
 
-⸻
-
-5. Dynamic Environment (Unknown / Moving Obstacles)
+Dynamic Environment (Unknown / Moving Obstacles)
 
 Description
 	•	Obstacles may appear, disappear, or move
@@ -68,9 +60,7 @@ Algorithms Used
 	•	D* Algorithm
 	•	D* Lite (recommended)
 
-⸻
-
-6. Working of UGV
+Working of UGV
 	1.	Compute initial path using A*
 	2.	Start moving towards goal
 	3.	Continuously scan environment
@@ -79,9 +69,7 @@ Algorithms Used
 	•	Recalculate path
 	5.	Continue until goal is reached
 
-⸻
-
-7. Pseudocode
+Pseudocode
 
 while current_position != goal:
     if obstacle detected:
@@ -90,10 +78,7 @@ while current_position != goal:
     
     move to next position
 
-
-⸻
-
-8. Features
+Features
 	•	Grid-based environment (customizable size)
 	•	Random obstacle generation
 	•	Three obstacle density levels:
@@ -103,26 +88,19 @@ while current_position != goal:
 	•	Shortest path computation using A*
 	•	Easy to modify and extend
 
-⸻
-
-9. How to Run
+How to Run
 	1.	Open terminal
 	2.	Navigate to project folder
 	3.	Run:
 
-python3 UGVrealworld.py
+python3 ugv_path_planning.py
 
-
-⸻
-
-10. Output
+Output
 	•	Path found
 	•	Path length
 	•	Sequence of coordinates
 
-⸻
-
-11. Measures of Effectiveness
+Measures of Effectiveness
 
 Static Environment
 	•	Path Length
@@ -137,23 +115,17 @@ Dynamic Environment
 	•	Path Stability
 	•	Success Rate
 
-⸻
-
-12. Applications
+Applications
 	•	Military UGV navigation
 	•	Robotics path planning
 	•	Autonomous vehicles
 	•	Game AI and simulations
 
-⸻
-
-13. Future Improvements
+Future Improvements
 	•	Visualization of grid and path
 	•	Real-world map integration
 	•	Dynamic obstacle handling
 	•	GUI-based simulation
 
-⸻
-
-14. Requirements
+Requirements
 	•	Python 3
