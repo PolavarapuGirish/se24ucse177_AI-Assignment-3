@@ -70,11 +70,11 @@ f(n) = g(n) + h(n)
 
 ## Pseudocode
 while current_position != goal:
-if obstacle detected:
-update map
-recompute path using A*
+if obstacle_detected:
+    update_map()
+    recompute_path_using_A_star()
 
-move to next position
+move_to_next_position()
 
 ## Features
 - Grid-based environment (customizable size)
