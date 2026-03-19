@@ -23,15 +23,16 @@ Unlike traditional implementations that rely on hardcoded values, this project u
 - JSON (for caching)
 
 ---
-
 ## Project Structure
+```
 Q1-DijkstraIndia/
 ├── dijkstra.py
 ├── graph_cache.json
 ├── .env
 ├── .env.example
 ├── .gitignore
-└── README.md---
+└── README.md
+```
 
 ## API Setup
 
@@ -73,7 +74,9 @@ API_KEY=your_api_key_here
 
 ---
 
-## Sample OutputHyderabad -> Bengaluru = 567 km
+## Sample Output
+```
+Hyderabad -> Bengaluru = 567 km
 Hyderabad -> Delhi = 1559 km
 
 Shortest distances from Hyderabad:
@@ -83,7 +86,7 @@ Delhi: 1559 km
 Mumbai: 708 km
 Chennai: 624 km
 Kolkata: 1452 km
----
+```
 
 ## Algorithm Used
 - Computes shortest path from a source node
