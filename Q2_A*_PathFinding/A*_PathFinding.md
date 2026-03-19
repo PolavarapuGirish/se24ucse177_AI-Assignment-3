@@ -83,6 +83,29 @@ f(n) = g(n) + h(n)
 - Grid Size
 
 ---
+## Obstacle Density Levels
+| Level | Density |
+|-------|---------|
+| Low | 15% of cells are obstacles |
+| Medium | 30% of cells are obstacles |
+| High | 50% of cells are obstacles |
+
+---
+## Measures of Effectiveness
+| Metric | Description |
+|--------|-------------|
+| Density Level | Obstacle density used for the run |
+| Grid Size | Fixed at 70 x 70 km |
+| Start / Goal | User-specified positions |
+| Straight-line Distance | Euclidean (theoretical minimum) distance |
+| Path Length | Actual distance travelled by the UGV |
+| Path Optimality | Ratio of straight-line to path length (higher = better) |
+| Nodes Expanded | Number of nodes processed by A* |
+| Path Nodes | Total cells in the final path |
+| Direction Changes | Number of turns taken along the path |
+| Time Taken | Computation time in milliseconds |
+
+---
 
 ## Project Structure
 ```
