@@ -93,8 +93,8 @@ f(n) = g(n) + h(n)
 
 ## Project Structure
 ```
-Q2-UGVPathfinder/
-├── ugv.py
-├── requirements.txt
-└── README.md
+Q2_A*_PathFinding/
+├── A*_PathFinding.py
+├── A*_PathFinding.md
+└── requirements.txt
 ```
