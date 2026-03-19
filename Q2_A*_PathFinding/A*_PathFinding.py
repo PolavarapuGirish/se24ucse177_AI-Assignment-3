@@ -1,38 +1,43 @@
+import numpy as np
+import matplotlib.pyplot as plt
 import heapq
 import random
+import time
 
 # Grid size
-SIZE = 20   # you can change to 70
+ROWS = 30
+COLS = 30
 
-# Generate grid with obstacle density
-def generate_grid(size, density):
-    grid = []
-    for i in range(size):
-        row = []
-        for j in range(size):
-            if random.random() < density:
-                row.append(1)  # obstacle
-            else:
-                row.append(0)  # free
-        grid.append(row)
-    return grid
+# Directions (up, down, left, right)
+DIRS = [(0,1), (1,0), (0,-1), (-1,0)]
 
-# Heuristic (Manhattan distance)
+# Heuristic (Manhattan Distance)
 def heuristic(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
+# Generate grid with obstacles
+def generate_grid(density=0.2):
+    grid = np.zeros((ROWS, COLS))
+    for i in range(ROWS):
+        for j in range(COLS):
+            if random.random() < density:
+                grid[i][j] = 1  # obstacle
+    return grid
+
 # A* Algorithm
 def astar(grid, start, goal):
-    rows, cols = len(grid), len(grid[0])
     open_list = []
     heapq.heappush(open_list, (0, start))
-
+    
     came_from = {}
-    g_cost = {start: 0}
-
+    g_score = {start: 0}
+    
+    nodes_explored = 0
+    
     while open_list:
         _, current = heapq.heappop(open_list)
-
+        nodes_explored += 1
+        
         if current == goal:
             path = []
             while current in came_from:
@@ -40,35 +45,66 @@ def astar(grid, start, goal):
                 current = came_from[current]
             path.append(start)
             path.reverse()
-            return path
-
-        for dx, dy in [(-1,0),(1,0),(0,-1),(0,1)]:
-            neighbor = (current[0]+dx, current[1]+dy)
-
-            if 0 <= neighbor[0] < rows and 0 <= neighbor[1] < cols:
-                if grid[neighbor[0]][neighbor[1]] == 1:
-                    continue
-
-                new_cost = g_cost[current] + 1
-
-                if neighbor not in g_cost or new_cost < g_cost[neighbor]:
-                    g_cost[neighbor] = new_cost
-                    f = new_cost + heuristic(neighbor, goal)
-                    heapq.heappush(open_list, (f, neighbor))
+            return path, nodes_explored
+        
+        for d in DIRS:
+            neighbor = (current[0] + d[0], current[1] + d[1])
+            
+            if (0 <= neighbor[0] < ROWS and 
+                0 <= neighbor[1] < COLS and 
+                grid[neighbor] == 0):
+                
+                temp_g = g_score[current] + 1
+                
+                if neighbor not in g_score or temp_g < g_score[neighbor]:
+                    g_score[neighbor] = temp_g
+                    f_score = temp_g + heuristic(neighbor, goal)
+                    heapq.heappush(open_list, (f_score, neighbor))
                     came_from[neighbor] = current
+    
+    return None, nodes_explored
 
-    return None
+# Visualization
+def visualize(grid, path, start, goal):
+    display = grid.copy()
+    
+    for node in path:
+        display[node] = 0.5  # path
+    
+    display[start] = 0.8  # start
+    display[goal] = 0.9   # goal
+    
+    plt.imshow(display, cmap="viridis")
+    plt.title("UGV Pathfinding (A*)")
+    plt.colorbar()
+    plt.show()
 
-# Example usage
-grid = generate_grid(SIZE, 0.2)  # 20% obstacles
-
-start = (0, 0)
-goal = (SIZE-1, SIZE-1)
-
-path = astar(grid, start, goal)
-
-if path:
-    print("Path found:", path)
-    print("Path length:", len(path))
-else:
-    print("No path found")
+# MAIN
+if __name__ == "__main__":
+    
+    density = 0.2  # change for difficulty
+    
+    grid = generate_grid(density)
+    
+    start = (0, 0)
+    goal = (ROWS-1, COLS-1)
+    
+    # Ensure start & goal are not blocked
+    grid[start] = 0
+    grid[goal] = 0
+    
+    start_time = time.time()
+    path, nodes = astar(grid, start, goal)
+    end_time = time.time()
+    
+    print("\n--- RESULTS ---")
+    
+    if path:
+        print("Path found!")
+        print("Path Length:", len(path))
+        print("Nodes Explored:", nodes)
+        print("Time Taken:", round(end_time - start_time, 5), "seconds")
+        
+        visualize(grid, path, start, goal)
+    else:
+        print("No path found!")
