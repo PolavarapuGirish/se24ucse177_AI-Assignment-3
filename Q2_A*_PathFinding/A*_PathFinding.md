@@ -98,3 +98,8 @@ Q2_A*_PathFinding/
 ├── A*_PathFinding.md
 └── requirements.txt
 ```
+## Author
+
+Polavarapu Girish  
+Roll No: SE24UCSE177  
+Course: CS-2201 – Artificial Intelligence
