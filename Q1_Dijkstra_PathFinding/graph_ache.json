@@ -1,0 +1,44 @@
+{
+    "Hyderabad": {
+        "Bengaluru": 567,
+        "Delhi": 1559,
+        "Mumbai": 708,
+        "Chennai": 624,
+        "Kolkata": 1452
+    },
+    "Bengaluru": {
+        "Hyderabad": 566,
+        "Delhi": 2102,
+        "Mumbai": 992,
+        "Chennai": 326,
+        "Kolkata": 1844
+    },
+    "Delhi": {
+        "Hyderabad": 1555,
+        "Bengaluru": 2076,
+        "Mumbai": 1354,
+        "Chennai": 2145,
+        "Kolkata": 1467
+    },
+    "Mumbai": {
+        "Hyderabad": 704,
+        "Bengaluru": 988,
+        "Delhi": 1380,
+        "Chennai": 1228,
+        "Kolkata": 1893
+    },
+    "Chennai": {
+        "Hyderabad": 627,
+        "Bengaluru": Infinity,
+        "Delhi": Infinity,
+        "Mumbai": Infinity,
+        "Kolkata": Infinity
+    },
+    "Kolkata": {
+        "Hyderabad": Infinity,
+        "Bengaluru": Infinity,
+        "Delhi": 1492,
+        "Mumbai": 1887,
+        "Chennai": 1665
+    }
+}
