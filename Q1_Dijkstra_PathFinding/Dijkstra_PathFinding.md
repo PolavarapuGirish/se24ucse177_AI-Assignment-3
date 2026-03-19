@@ -1,74 +1,119 @@
-Dijkstra Algorithm – Indian Cities (Python)
+ Dijkstra’s Algorithm with Real-Time Distance API
 
-Description
+ Overview
 
-This project implements Dijkstra’s Algorithm (Uniform Cost Search) in Python to find the shortest distance from a selected starting city to all other cities.
+This project implements Dijkstra’s Algorithm (Uniform Cost Search) to find the shortest path between cities in India using real-world road distances fetched dynamically from an API.
 
-The cities are represented as nodes and the roads between them are represented as weighted edges (distances in kilometers).
-
-⸻
-
-## Objective
-	•	To understand how shortest path algorithms work
-	•	To apply Dijkstra’s Algorithm on real-world inspired data
-	•	To simulate road distances between Indian cities
-
-⸻
-## Algorithm
-
-Steps:
-1. Set distance of start node to 0 and others to infinity  
-2. Pick the node with the smallest distance  
-3. Update distances of neighboring nodes  
-4. Repeat until all nodes are visited  
-
-## Features
-	•	Simple and beginner-friendly implementation
-	•	Uses Python dictionary to represent graph
-	•	Uses priority queue (heapq) for efficiency
-	•	Easy to modify (add more cities and distances)
-	•	Works for any connected graph
-	
-⸻
-
-## How to Run
-	1.	Open terminal
-	2.	Navigate to project folder
-	3.	Run:
-
-python3 Dijkstra_PathFinding.py
+Unlike traditional implementations that use hardcoded values, this project integrates an external API to obtain accurate, real-time distances, making it more practical and realistic.
 
 ⸻
 
-Example
-
-Input:
-Enter starting city: Hyderabad
-
-## Output:
-Hyderabad: 0 km
-Bangalore: 570 km
-Chennai: 630 km
-Mumbai: 710 km
+ Objectives
+	•	Implement Dijkstra’s Algorithm
+	•	Use real-time road distance data
+	•	Avoid hardcoded values
+	•	Optimize performance using caching
 
 ⸻
 
-## Requirements
+ Technologies Used
 	•	Python 3
-	•	No external libraries required
+	•	OpenRouteService API
+	•	Requests Library
+	•	python-dotenv
+	•	JSON (for caching)
 
 ⸻
 
-## Applications
-	•	GPS navigation systems
-	•	Network routing protocols
-	•	Transportation and logistics planning
-	•	Map-based services
+ Project Structure
+
+Q1-DijkstraIndia/
+│
+├── dijkstra.py         # Main implementation
+├── graph_cache.json    # Stores cached distances
+├── .env                # API key (not pushed to GitHub)
+├── .env.example        # Template for API key
+├── .gitignore          # Ignores sensitive files
+└── README.md           # Project documentation
+
 
 ⸻
 
-## Future Improvements
-	•	Add more Indian cities with real data
-	•	Use file input instead of hardcoding graph
-	•	Visualize graph using libraries like matplotlib or networkx
-	•	Build a GUI or web interface
+ API Setup
+
+Step 1: Get API Key
+	1.	Go to: https://openrouteservice.org/
+	2.	Sign up and generate an API key
+
+Step 2: Add API Key
+
+Create a .env file:
+
+API_KEY=your_api_key_here
+
+
+⸻
+
+ How to Run
+
+1. Install dependencies
+
+pip3 install requests python-dotenv
+
+2. Run the program
+
+python3 dijkstra.py
+
+
+⸻
+
+ How It Works
+	1.	The program fetches distances between cities using the API
+	2.	Builds a graph dynamically
+	3.	Applies Dijkstra’s Algorithm
+	4.	Outputs shortest distances from a selected source city
+
+⸻
+
+ Features
+	•	✅ Real-time distance calculation
+	•	✅ No hardcoded data
+	•	✅ Efficient using caching
+	•	✅ Handles API errors gracefully
+	•	✅ Scalable for more cities
+
+⸻
+
+ Limitations
+	•	API rate limits may occur (handled partially using caching)
+	•	Requires internet connection
+
+⸻
+
+ Sample Output
+
+Hyderabad -> Bengaluru = 567 km
+Hyderabad -> Delhi = 1559 km
+
+Shortest distances from Hyderabad:
+Bengaluru: 567 km
+Delhi: 1559 km
+Mumbai: 708 km
+Chennai: 624 km
+Kolkata: 1452 km
+
+
+⸻
+
+ Concept Used
+
+Dijkstra’s Algorithm
+	•	Finds the shortest path from a source node to all other nodes
+	•	Uses a priority queue
+	•	Works for graphs with non-negative weights
+
+⸻
+
+ Conclusion
+
+This project demonstrates how classical algorithms like Dijkstra can be enhanced using real-world data and modern APIs, making them more applicable to real-life scenarios such as navigation systems.
