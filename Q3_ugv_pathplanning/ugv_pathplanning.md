@@ -124,6 +124,8 @@ Q3_ugv_pathplanning/
 ```
 ---
 ## Author
-Polavarapu Girish 
-Roll No: **SE24UCSE177**  
-Course: **CS-2201 – Artificial Intelligence**
+
+Polavarapu Girish  
+Roll No: SE24UCSE177  
+
+Course: CS-2201 – Artificial Intelligence
