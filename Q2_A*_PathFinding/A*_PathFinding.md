@@ -1,7 +1,7 @@
 # UGV Pathfinding using A* Algorithm
 
 ## Overview
-This project simulates an Unmanned Ground Vehicle (UGV) navigating a grid-based environment using the A* search algorithm. The objective is to find the shortest path from a start node to a goal node while avoiding obstacles placed within the grid.
+This project simulates an Unmanned Ground Vehicle (UGV) navigating a grid-based environment using the A* search algorithm. The objective is to find the shortest path from a start node to a goal node while avoiding obstacles placed within the grid.A **70x70 grid** is used to represent the battlefield, where each cell corresponds to 1 km². Obstacles are randomly distributed across the grid at one of three configurable density levels.
 
 The system models a real-world scenario where a robot must efficiently navigate through a constrained environment such as a battlefield or terrain map.
 
