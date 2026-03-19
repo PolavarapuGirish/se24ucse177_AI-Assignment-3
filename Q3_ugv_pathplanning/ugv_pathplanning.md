@@ -86,11 +86,32 @@ f(n) = g(n) + h(n)
 
 ---
 
+## Obstacle Density Levels
+| Level | Initial Static Density |
+|-------|------------------------|
+| Low | 15% of cells are obstacles |
+| Medium | 30% of cells are obstacles |
+| High | 50% of cells are obstacles |
+
+Dynamic obstacles are spawned in waves of 8 every 5 steps regardless of the density level chosen.
+
+---
 ## Measures of Effectiveness
-- Steps Taken  
-- Replans Triggered  
-- Time Taken  
-- Path Efficiency  
+| Metric | Description |
+|--------|-------------|
+| Obstacle Density Level | Initial static obstacle density used for the run |
+| Grid Size | Fixed at 70 x 70 km |
+| Start / Goal | User-specified positions |
+| Straight-line Distance | Euclidean (theoretical minimum) distance |
+| Initial Planned Distance | Distance of the path A* planned before traversal began |
+| Actual Distance Travelled | Real distance covered by the UGV including all detours |
+| Extra Distance (replanning) | Additional distance caused by dynamic obstacle detours |
+| Path Optimality | Ratio of straight-line to actual distance (higher = better) |
+| Total Replans Triggered | How many times the UGV had to abandon its plan and replan |
+| Dynamic Obstacles Spawned | Total new obstacles that appeared during the run |
+| Steps Taken | Total cells visited by the UGV |
+| Direction Changes | Number of turns taken along the actual path |
+| Time Taken | Total simulation time in milliseconds |
 
 ---
 
@@ -101,3 +122,8 @@ Q3_ugv_pathplanning/
 ├── ugv_pathplanning.md
 ├── ugv_pathplanning.py
 ```
+---
+## Author
+Polavarapu Girish 
+Roll No: **SE24UCSE177**  
+Course: **CS-2201 – Artificial Intelligence**
