@@ -25,13 +25,12 @@ Unlike traditional implementations that rely on hardcoded values, this project u
 ---
 ## Project Structure
 ```
-Q1-DijkstraIndia/
-├── dijkstra.py
+Q1_Dijkstra_PathFinding/
+├── Dijkstra_PathFinding.py
+├── Dijkstra_PathFinding.md
 ├── graph_cache.json
-├── .env
 ├── .env.example
-├── .gitignore
-└── README.md
+└── .gitignore
 ```
 
 ## API Setup
