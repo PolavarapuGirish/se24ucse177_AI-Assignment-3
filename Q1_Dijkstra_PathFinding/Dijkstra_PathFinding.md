@@ -98,3 +98,11 @@ Kolkata: 1452 km
 - Stores API responses in graph_cache.json
 - Reduces repeated API calls
 - Prevents hitting API rate limits
+  
+---
+
+## Author
+
+Polavarapu Girish  
+Roll No: SE24UCSE177  
+Course: CS-2201 – Artificial Intelligence
