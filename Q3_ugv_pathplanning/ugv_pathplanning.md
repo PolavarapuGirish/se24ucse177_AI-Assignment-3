@@ -1,131 +1,103 @@
-# UGV Path Planning using A* Algorithm (Python)
+# UGV Pathfinding with Dynamic Obstacles
 
-## Introduction
-An Unmanned Ground Vehicle (UGV) is an autonomous robot used for navigation in complex environments such as battlefields. The objective is to find the shortest and safest path from a start node to a goal node while avoiding obstacles.
+## Overview
+This project extends the UGV pathfinding problem by introducing dynamic obstacles. Unlike static environments, obstacles can appear during the movement of the UGV, making the pathfinding process more challenging and realistic.
 
-## Environment
-The environment is modeled as a grid (e.g., 70 × 70 km area), where:
+The system uses a replanning approach based on the A* algorithm to dynamically adjust the path as new obstacles are introduced.
 
-- Each cell represents a location
-- Obstacles are pre-defined or randomly generated
-- The UGV must safely reach the destination
+---
 
 ## Problem Statement
-Design an algorithm that enables a UGV to:
+In real-world environments, obstacles are not always known beforehand and may change over time. The objective is to enable an Unmanned Ground Vehicle (UGV) to navigate from a start node to a goal node while adapting to dynamically appearing obstacles and still finding an optimal path.
 
-- Navigate from a start node to a goal node
-- Avoid obstacles present in the environment
-- Find the shortest possible path
-- Adapt to both static and dynamic obstacles
-
-## Static Environment (Known Obstacles)
-
-### Description
-- Obstacles are known beforehand
-- Environment does not change during execution
-
-### Algorithm Used: A* (A-Star)
-A* is a heuristic-based algorithm used to find the shortest path.
-
-f(n) = g(n) + h(n)
-
-- g(n): Cost from start node
-- h(n): Estimated cost to goal (Manhattan distance)
-
-### Steps
-1. Initialize start node with distance 0
-2. Assign infinity to all other nodes
-3. Select node with minimum cost
-4. Update neighboring nodes
-5. Repeat until goal is reached
-
-### Advantages
-- Guarantees shortest path
-- Efficient for known environments
-
-## Dynamic Environment (Unknown / Moving Obstacles)
-
-### Description
-- Obstacles may appear, disappear, or move
-- Environment is not fully known in advance
-
-### Solution Approach
-- Use real-time sensing to detect obstacles
-- Update the grid dynamically
-- Recompute path when changes occur
-
-### Algorithms Used
-- A* with Replanning
-- D* Algorithm
-- D* Lite (recommended)
-
-## Working of UGV
-1. Compute initial path using A*
-2. Start moving towards goal
-3. Continuously scan environment
-4. If obstacle detected:
-   - Update map
-   - Recalculate path
-5. Continue until goal is reached
-
-## Pseudocode
-
-```
-while current_position != goal:
-
-    if obstacle_detected:
-        update_map()
-        recompute_path_using_A_star()
-
-    move_to_next_position()
-```
+---
 
 ## Features
-- Grid-based environment (customizable size)
-- Random obstacle generation
-- Three obstacle density levels:
-  - Low (10%)
-  - Medium (20–30%)
-  - High (40%+)
-- Shortest path computation using A*
-- Easy to modify and extend
+- Grid-based environment representation  
+- Static obstacle generation at initialization  
+- Dynamic obstacles appearing during traversal  
+- Replanning using A* algorithm  
+- Step-by-step movement simulation  
+- Visualization of grid and path updates  
+- Performance metrics tracking  
+
+---
+
+## Technologies Used
+- Python  
+- NumPy  
+- Matplotlib  
+
+---
 
 ## How to Run
-1. Open terminal
-2. Navigate to project folder
-3. Run: ugv_pathplanning.py
+
+### 1. Install dependencies
+```
+pip3 install -r requirements.txt
+```
+
+### 2. Run program
+```
+python3 ugv_dynamic.py
+```
+
+---
+
+## How It Works
+1. A grid environment is generated  
+2. Static obstacles are placed initially  
+3. A* algorithm computes an initial path  
+4. The UGV starts moving step-by-step  
+5. Dynamic obstacles appear randomly during traversal  
+6. If the current path is blocked, the algorithm replans using A*  
+7. The process continues until the goal is reached or no path exists  
+
+---
+
+## Obstacle Behavior
+- Static obstacles are generated at the start  
+- Dynamic obstacles appear randomly during execution  
+- Obstacles can block the current path  
+- Replanning is triggered when path becomes invalid  
+
+---
 
 ## Output
-- Path found
-- Path length
-- Sequence of coordinates
+- Displays grid with obstacles and path  
+- Shows movement of UGV in real-time  
+- Prints:
+  - Steps Taken  
+  - Replans Triggered  
+  - Time Taken  
+
+---
+
+## Algorithm Used
+Replanning A* Search:
+
+```
+f(n) = g(n) + h(n)
+```
+
+- g(n): Cost from start node  
+- h(n): Heuristic (Manhattan distance)  
+- Allows dynamic adjustment of path  
+
+---
 
 ## Measures of Effectiveness
+- Steps Taken  
+- Replans Triggered  
+- Time Taken  
+- Path Efficiency  
 
-### Static Environment
-- Path Length
-- Computation Time
-- Nodes Explored
-- Optimality
+---
 
-### Dynamic Environment
-- Replanning Time
-- Adaptability
-- Collision Avoidance Rate
-- Path Stability
-- Success Rate
-
-## Applications
-- Military UGV navigation
-- Robotics path planning
-- Autonomous vehicles
-- Game AI and simulations
-
-## Future Improvements
-- Visualization of grid and path
-- Real-world map integration
-- Dynamic obstacle handling
-- GUI-based simulation
-
-## Requirements
-- Python 3
+## Project Structure
+```
+Q3-UGVDynamic/
+├── ugv_dynamic.py
+├── requirements.txt
+└── README.md
+```
