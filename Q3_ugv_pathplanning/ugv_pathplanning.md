@@ -96,8 +96,8 @@ f(n) = g(n) + h(n)
 
 ## Project Structure
 ```
-Q3-UGVDynamic/
-├── ugv_dynamic.py
+Q3_ugv_pathplanning/
 ├── requirements.txt
-└── README.md
+├── ugv_pathplanning.md
+├── ugv_pathplanning.py
 ```
