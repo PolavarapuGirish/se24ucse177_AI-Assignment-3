@@ -1,21 +1,93 @@
+import requests
+import os
+import json
 import heapq
+from dotenv import load_dotenv
+
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
+
+CACHE_FILE = "graph_cache.json"
+
+cities = ["Hyderabad", "Bengaluru", "Delhi", "Mumbai", "Chennai", "Kolkata"]
+
+coords = {
+    "Hyderabad": [78.4867, 17.3850],
+    "Bengaluru": [77.5946, 12.9716],
+    "Delhi": [77.1025, 28.7041],
+    "Mumbai": [72.8777, 19.0760],
+    "Chennai": [80.2707, 13.0827],
+    "Kolkata": [88.3639, 22.5726]
+}
+
+def load_cache():
+    if os.path.exists(CACHE_FILE):
+        try:
+            with open(CACHE_FILE, "r") as f:
+                return json.load(f)
+        except:
+            return {}
+    return {}
+
+def save_cache(graph):
+    with open(CACHE_FILE, "w") as f:
+        json.dump(graph, f, indent=4)
+
+def get_distance(city1, city2):
+    url = "https://api.openrouteservice.org/v2/directions/driving-car"
+
+    headers = {
+        "Authorization": API_KEY,
+        "Content-Type": "application/json"
+    }
+
+    body = {
+        "coordinates": [
+            coords[city1],
+            coords[city2]
+        ]
+    }
+
+    try:
+        response = requests.post(url, json=body, headers=headers)
+        data = response.json()
+
+        dist = data["routes"][0]["summary"]["distance"] / 1000
+        print(f"{city1} -> {city2} = {int(dist)} km")
+        return int(dist)
+
+    except Exception as e:
+        print("Error:", data)
+        return float('inf')
+
+def build_graph():
+    cache = load_cache()
+
+    if cache:
+        print("Using cached data...")
+        return cache
+
+    graph = {}
+
+    for c1 in cities:
+        graph[c1] = {}
+        for c2 in cities:
+            if c1 != c2:
+                graph[c1][c2] = get_distance(c1, c2)
+
+    save_cache(graph)
+    return graph
 
 def dijkstra(graph, start):
-    # Priority queue
     pq = [(0, start)]
-    
-    # Distance dictionary
     distances = {city: float('inf') for city in graph}
     distances[start] = 0
 
     while pq:
-        current_distance, current_city = heapq.heappop(pq)
-
-        if current_distance > distances[current_city]:
-            continue
+        current_dist, current_city = heapq.heappop(pq)
 
         for neighbor, weight in graph[current_city].items():
-            distance = current_distance + weight
+            distance = current_dist + weight
 
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
@@ -23,19 +95,12 @@ def dijkstra(graph, start):
 
     return distances
 
+if __name__ == "__main__":
+    graph = build_graph()
 
-# Example graph (Indian cities)
-graph = {
-    "Hyderabad": {"Bangalore": 570, "Chennai": 630, "Mumbai": 710},
-    "Bangalore": {"Hyderabad": 570, "Chennai": 350},
-    "Chennai": {"Hyderabad": 630, "Bangalore": 350, "Mumbai": 1330},
-    "Mumbai": {"Hyderabad": 710, "Chennai": 1330}
-}
+    start_city = "Hyderabad"
+    result = dijkstra(graph, start_city)
 
-start_city = input("Enter starting city: ")
-
-result = dijkstra(graph, start_city)
-
-print("\nShortest distances:")
-for city, distance in result.items():
-    print(f"{city}: {distance} km")
+    print("\nShortest distances from", start_city)
+    for city, dist in result.items():
+        print(f"{city}: {dist} km")
